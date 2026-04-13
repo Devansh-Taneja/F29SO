@@ -1,1 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
 
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="sidebar">
+<div class="logo-section" onclick="goHome()">
+<img src="../assets/logo.png" class="logo">
+<h2>CareHome Energy</h2>
+</div>
+
+<h2> Energy System</h2>
+
+<a href="#dashboard">Dashboard</a>
+<a href="#users">Users</a>
+<a href="#devices">Devices</a>
+<a href="#requests">Requests</a>
+<a href="#analytics">Analytics</a>
+<a href="#alerts">Alerts</a>
+<a href="#settings">Settings</a>
+
+</div>
+
+<button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+<div id="dashboard" class="container">
+
+<h1 class="page-title">Admin Dashboard</h1>
+
+<div class="analytics-grid">
+
+<div class="analytics-card">
+<h4>Total Users</h4>
+<p id="totalUsers"></p>
+</div>
+
+<div class="analytics-card">
+<h4>Total Devices</h4>
+<p id="totalDevices"></p>
+</div>
+
+<div class="analytics-card">
+<h4>Total Energy</h4>
+<p id="totalEnergy"></p>
+</div>
+
+<div class="analytics-card">
+<h4>AI Recommendation</h4>
+<p id="prediction"></p>
+</div>
+
+</div>
+
+
+<div id="alerts" class="card">
+<h3>Alerts</h3>
+<div id="alertsList"></div>
+</div>
+
+
+<div id="users" class="card">
+<h3>User Management</h3>
+
+<div id="userList"></div>
+
+<input id="newUser" placeholder="New User ID">
+<button onclick="addUser()">Add User</button>
+
+</div>
+
+
+<div id="devices" class="card">
+<h3>Device Management</h3>
+
+<select id="deviceUserSelect"></select>
+<input id="newDevice" placeholder="Device Name">
+<button onclick="addDevice()">Add Device</button>
+
+<div id="deviceList"></div>
+</div>
+
+
+<div id="requests" class="card">
+<h3>Device Requests</h3>
+<div id="requestsList"></div>
+</div>
+
+
+<div id="analytics" class="card">
+<h3>System Analytics</h3>
+
+<select id="graphType">
+<option value="bar">Bar</option>
+<option value="line">Line</option>
+<option value="pie">Pie</option>
+</select>
+
+<canvas id="adminChart"></canvas>
+
+<button onclick="downloadCSV()">Download CSV Report</button>
+
+</div>
+
+
+<div id="settings" class="card">
+<h3>Settings</h3>
+
+
+<label>Energy Limit (kWh)</label>
+<input id="limit" type="number">
+
+<br><br>
+
+
+<h4>Alerts</h4>
+
+<label>Sensitivity</label>
+<select id="alertLevel">
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option value="high">High</option>
+</select>
+
+<br><br>
+
+<label>
+<input type="checkbox" id="alertHighUsage"> High Usage Alerts
+</label>
+
+<br>
+
+<label>
+<input type="checkbox" id="alertIdle"> Idle Device Alerts
+</label>
+
+<br><br>
+
+
+<h4> AI Mode</h4>
+
+<select id="aiMode">
+<option value="conservative">Conservative</option>
+<option value="balanced">Balanced</option>
+<option value="aggressive">Aggressive</option>
+</select>
+
+<br><br>
+
+
+<h4> Auto Shutoff</h4>
+
+<label>Auto OFF Time (seconds)</label>
+<input id="autoOff" type="number">
+
+<br><br>
+
+
+<h4> Permissions</h4>
+
+<label>Resident Control</label>
+<select id="residentControl">
+<option value="limited">Limited</option>
+<option value="full">Full</option>
+</select>
+
+<br><br>
+
+
+<h4> System</h4>
+
+<button onclick="resetSystem()">Reset All Data</button>
+
+<br><br>
+
+<button onclick="updateSettings()">Save Settings</button>
+
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/chart.js"></script>
+
+</body>
+</html>

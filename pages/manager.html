@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manager Dashboard</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+
+<div class="sidebar">
+<div class="logo-section" onclick="goHome()">
+<img src="../assets/logo.png" class="logo">
+<h2>CareHome Energy</h2>
+</div>
+
+<h2> Energy System</h2>
+
+<a href="#dashboard">Dashboard</a>
+<a href="#leaderboard">Leaderboard</a>
+<a href="#residents">Residents</a>
+<a href="#facility">Facility</a>
+<a href="#analytics">Analytics</a>
+
+</div>
+
+<button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+<div id="dashboard" class="container">
+
+<h1 class="page-title">Manager Dashboard</h1>
+
+
+<div class="analytics-grid">
+
+<div class="analytics-card">
+<h4>Highest Usage</h4>
+<p id="highestUser"></p>
+</div>
+
+<div class="analytics-card">
+<h4>Lowest Usage</h4>
+<p id="lowestUser"></p>
+</div>
+
+<div class="analytics-card">
+<h4>Average Usage</h4>
+<p id="avgUsage"></p>
+</div>
+
+<div class="analytics-card">
+<h4>AI Prediction</h4>
+<p id="prediction"></p>
+</div>
+
+</div>
+
+
+<div id="leaderboard" class="card">
+<h3>Leaderboard</h3>
+<div id="leaderboardData"></div>
+</div>
+
+
+<div id="residents" class="card">
+<h3>Resident Monitoring</h3>
+
+<select id="residentSelect"></select>
+<div id="residentDetails"></div>
+
+</div>
+
+<div id="facility" class="card">
+<h3>Facility Timer</h3>
+
+<select id="facilitySelect"></select>
+
+<p id="facilityStatus">OFF</p>
+<p id="facilityTimer">0s</p>
+
+<button onclick="facilityOn()">ON</button>
+<button onclick="facilityOff()">OFF</button>
+
+</div>
+
+<div id="analytics" class="card">
+<h3>Facility Energy Graph</h3>
+
+<select id="graphType">
+<option value="bar">Bar</option>
+<option value="line">Line</option>
+<option value="pie">Pie</option>
+</select>
+
+<div class="chart-container">
+<canvas id="managerChart"></canvas>
+</div>
+
+</div>
+
+
+
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/manager.js"></script>
+<script src="../js/chart.js"></script>
+
+</body>
+</html>
