@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="home-page">
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+
+<div class="particles"></div>
+<div class="energy-lines"></div>
+<div class="grid-overlay"></div>
+
+
+
+<div class="home-container">
+
+<div class="logo-section" onclick="goHome()">
+<img src="assets/logo.png" class="logo">
+<h1>CareHome Energy</h1>
+</div>
+
+<h2>Select Your Role</h2>
+
+<div class="role-buttons">
+
+<button onclick="goToLogin('resident')">Resident</button>
+<button onclick="goToLogin('manager')">Manager</button>
+<button onclick="goToLogin('admin')">Admin</button>
+
+</div>
+
+</div>
+
+<script>
+function goToLogin(role){
+localStorage.setItem("role",role)
+window.location="login.html"
+}
+
+function goHome(){
+window.location="index.html"
+}
+function toggleTheme(){
+document.body.classList.toggle("dark")
+
+if(document.body.classList.contains("dark")){
+localStorage.setItem("theme","dark")
+}else{
+localStorage.setItem("theme","light")
+}
+}
+
+let savedTheme = localStorage.getItem("theme")
+if(savedTheme === "dark"){
+document.body.classList.add("dark")
+}
+</script>
+
+</body>
+</html>
